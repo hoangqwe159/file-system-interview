@@ -2,6 +2,17 @@ import { describe, it, expect } from "bun:test";
 import { FileSystem } from "../src/index";
 
 describe("FileSystem", () => {
+  it("should pass example usage", () => {
+    const fileSystem = new FileSystem();
+    expect(fileSystem.ls("/")).toEqual([]);
+    fileSystem.mkdir("/a/b/c");
+    fileSystem.addContentToFile("/a/b/c/d", "hello");
+    expect(fileSystem.ls("/")).toEqual(["a"]);
+    expect(fileSystem.ls("/a/b/c")).toEqual(["d"]);
+    expect(fileSystem.readContentFromFile("/a/b/c/d")).toBe("hello");
+    fileSystem.addContentToFile("/a/b/c/d", " world");
+    expect(fileSystem.readContentFromFile("/a/b/c/d")).toBe("hello world");
+  });
   it("should list files and directories in lexicographic order", () => {
     const fileSystem = new FileSystem();
     expect(fileSystem.ls("/")).toEqual([]);

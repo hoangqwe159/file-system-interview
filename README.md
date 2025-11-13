@@ -1,16 +1,35 @@
 # In-Memory File System
 
-This project implements an in-memory file system as described in [LeetCode Problem 588](https://leetcode.com/problems/design-in-memory-file-system/).
+This project implements an in-memory file system
 
 ## Problem Description
 
 Design a data structure that simulates an in-memory file system.
 
-### Features
-- **`ls(path: string): string[]`**: Lists files and directories in lexicographic order.
-- **`mkdir(path: string): void`**: Creates directories recursively.
-- **`addContentToFile(filePath: string, content: string): void`**: Adds or appends content to a file.
-- **`readContentFromFile(filePath: string): string`**: Reads content from a file.
+### FileSystem API
+
+#### `FileSystem()`
+Initializes the object of the system.
+
+#### `ls(path: string): string[]`
+- If `path` is a file path, returns a list containing only this file's name.
+- If `path` is a directory path, returns the list of file and directory names in this directory.
+- The answer is always in lexicographic order.
+- If the path does not exist, returns an empty list.
+
+#### `mkdir(path: string): void`
+- Makes a new directory according to the given path.
+- If the middle directories in the path do not exist, creates them as well.
+- Does nothing if the directory already exists.
+
+#### `addContentToFile(filePath: string, content: string): void`
+- If `filePath` does not exist, creates that file containing the given content.
+- If `filePath` already exists, appends the given content to the original content.
+- Intermediate directories are created if they do not exist.
+
+#### `readContentFromFile(filePath: string): string`
+- Returns the content in the file at `filePath`.
+- If the file does not exist, returns an empty string.
 
 ### Example Usage
 ```typescript
@@ -19,7 +38,10 @@ fileSystem.ls("/"); // []
 fileSystem.mkdir("/a/b/c");
 fileSystem.addContentToFile("/a/b/c/d", "hello");
 fileSystem.ls("/"); // ["a"]
+fileSystem.ls("/a/b/c"); // ["d"]
 fileSystem.readContentFromFile("/a/b/c/d"); // "hello"
+fileSystem.addContentToFile("/a/b/c/d", " world");
+fileSystem.readContentFromFile("/a/b/c/d"); // "hello world"
 ```
 
 ## Setup
