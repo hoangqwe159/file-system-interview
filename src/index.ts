@@ -3,15 +3,19 @@ export class FileSystem {
     }
 
     ls(path: string): string[] {
+        throw new Error("Method not implemented.");
     }
 
     mkdir(path: string): void {
+        throw new Error("Method not implemented.");
     }
 
     addContentToFile(filePath: string, content: string): void {
+        throw new Error("Method not implemented.");
     }
 
     readContentFromFile(filePath: string): string {
+        throw new Error("Method not implemented.");
     }
 }
 
