@@ -1,0 +1,16 @@
+# Node modules and Bun dependencies
+node_modules/
+bun.lockb
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+
+# Test coverage
+coverage/
+
+# Build output
+dist/

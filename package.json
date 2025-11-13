@@ -1,0 +1,19 @@
+{
+  "name": "file-system-interview",
+  "version": "1.0.0",
+  "description": "Implementation of an in-memory file system for interview problem 588.",
+  "main": "index.ts",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "@types/bun": "latest"
+  },
+  "type": "module",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
