@@ -38,5 +38,13 @@ Use this checklist to evaluate an engineer's approach to solving the file system
 - [ ] Suggests improvements for production-readiness (thread safety, persistence, etc.)
 - [ ] Mentors or guides others through the solution
 
+## Constraints
+- 1 <= path.length, filePath.length <= 100
+- `path` and `filePath` are absolute paths which begin with '/' and do not end with '/' except that the path is just '/'.
+- All directory names and file names only contain lowercase letters, and the same names will not exist in the same directory.
+- All operations will be passed valid parameters; users will not attempt to retrieve file content or list a directory or file that does not exist.
+- The parent directory for the file in `addContentToFile` will exist.
+- 1 <= content.length <= 50
+- At most 300 calls will be made to `ls`, `mkdir`, `addContentToFile`, and `readContentFromFile`.
 ---
 _Use this checklist to guide your evaluation for this specific file system question. Mark each item and discuss examples for each._
